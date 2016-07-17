@@ -1,0 +1,5 @@
+<%= image_tag @entrepreneur.image.url,width: 1000, height: 400 %><br>
+
+<%= @entrepreneur.text %>
+<%= render @entrepreneur.comments %>
+<%= render 'comments/form' %>

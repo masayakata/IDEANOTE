@@ -1,0 +1,211 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+	margin:0;
+	background: white;
+	font-size: 14px;
+}
+
+h1, h2, h3 {
+	margin-top: 0;
+}
+
+#wrapper {
+	background: white;
+	width: 900px;
+	height: 1000px;
+	margin: 0 auto;
+	
+}
+
+#f-wrapper {
+	background: white;
+	width: 900px;
+	margin: 0 auto;
+	clear: both;
+
+}
+
+#e-wrapper {
+	width: 1280px;
+
+
+}
+.background-color {
+	width: 1000px;
+	background: #75A9FF;
+}
+ul {
+  list-style-type: none;
+	padding-left: 0;
+	width: 80
+}
+li {
+   float: right;
+  display: inline-block;
+  font-size: 12px;
+  width: 15%;
+ 
+}  
+
+ul.box {
+	width: 930px;
+	height: 400px;
+	margin: 0 auto;
+	float: right;
+	margin-right: 40px;
+}
+
+li.box {
+	height: 150px;
+	width: 200px;
+	text-align: center;
+	float: none;
+
+	margin-top: 20px;
+	margin-left: 20px;
+	padding: 40px ;
+	border: 1px solid #ccc;
+}
+
+#plofile {
+	clear: both;
+	float: left;
+	margin-left: 70px;
+}
+
+#top-title {
+	clear: both;
+	font-family: serif;
+	text-align: center;
+}
+
+#sub-title {
+	font-family: serif;
+	text-align: center;
+}
+
+#description {
+	font-family: serif;
+	text-align: center
+}
+
+#main-content {
+	width: 900px;
+	
+}
+#top-idea {
+	margin-left: 140px;
+}
+
+.e {
+
+	clear: both;
+	float: left;
+	width: 250px;
+
+}
+
+.c {
+	
+	float: left;
+	width: 250px;
+}
+
+.i {
+	
+	float: left;
+	width: 250px;
+}
+
+#header {
+	clear: both;
+	margin: 0 auto;
+	width: 650px;
+	font-size: 15px;
+}
+
+
+.header-a {
+	text-align: left;
+}
+
+.header-b {
+	text-align: center;
+}
+
+.header-c {
+	text-align: right;
+}
+.header-e {
+	clear: both;
+	text-align: center;
+}
+
+#bottm {
+	text-align: center;
+}
+
+
+
+.span {
+	margin-right: 0;
+	float: right;
+	width: 930px;
+
+}
+
+.s-wrapper {
+	border: 1px solid #ccc;
+	width: 1000px;
+	padding: 20px 0 0 200px;
+}
+
+.project_card_wrap {
+	
+}
+
+.card {
+	
+
+}
+
+.s-title {
+	padding-left: 400px;
+	width: 900px;
+	padding-bottom: 50px;
+}
+.s-text {
+	width: 1000px;
+	padding: 20px 0 0 200px;
+}
+
+.comment {
+	border: 1px solid #ccc;
+}
+
+.comments {
+	clear: both;
+	float: right;
+}
+
+
+
+
+
+
+

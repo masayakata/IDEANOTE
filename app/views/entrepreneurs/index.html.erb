@@ -1,0 +1,32 @@
+
+<div id="e-wrapper">
+	<div id="plofile">
+		<br>
+		◯◯家<br><br>
+		<% if user_signed_in? %>
+			<%= current_user.name ? current_user.name : current_user.email %><br>
+			<%=link_to "edit", edit_user_registration_path %>
+		<% end %>
+		
+		フォロー、フォロワー<br><br>
+		お気に入りアイディア<br><br>
+		グループ<br><br>
+		<%= link_to "IDEAIN", entrepreneurs_new_path %><br>
+	</div>
+		<br>
+	<div class="span">
+		<div class="project_card_wrap">
+			<ul class="box">
+					<% @entrepreneurs.each do |entrepreneur| %>
+					<li class="box">
+						<%= image_tag entrepreneur.image.thumb.url %>
+						<%= link_to entrepreneur.title, entrepreneur_path(entrepreneur)	 %>	<br>
+						<%= entrepreneur.text %><br>
+						<br>
+					</li>
+					<% end %>
+			</ul>
+					
+				</div>
+			</div>
+</div>

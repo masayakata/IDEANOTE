@@ -1,0 +1,10 @@
+<div class="s-comment">
+		<%= form_for [@entrepreneur, @entrepreneur. comments.build] do |f| %>
+		画像
+		名前
+			<%= f.text_field :commenter %><br>
+			コメント
+			<%= f.text_area :body %><br>
+			<%= f.submit 'IDEAIN'%>
+		<% end %>
+</div>

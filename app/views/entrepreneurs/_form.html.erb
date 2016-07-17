@@ -1,0 +1,12 @@
+
+
+<%= form_for @entrepreneur do |f| %>
+<br>
+<%= f.label :タイトル　%><br />
+<%= f.text_field :title %><br />
+<%= f.label :詳細　%><br />
+<%= f.text_area :text %><br />
+<%= f.label :画像　%><br />
+<%= f.file_field :image %><br />
+<%= f.submit :ideain %>
+<% end %>

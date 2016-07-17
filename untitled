@@ -1,0 +1,29 @@
+<ul class="box">		
+				<% @entrepreneurs.each do |entrepreneur| %>
+					<li class="box">
+						<%= image_tag entrepreneur.image.thumb.url %>
+						<%= link_to entrepreneur.title, entrepreneur_path(entrepreneur)	 %><br>
+						<%= entrepreneur.text %><br>
+						<%= link_to "編集", edit_entrepreneur_path(entrepreneur) %>
+						<%= link_to "削除", entrepreneur_path(entrepreneur), method: :delete, data:{confirm: "本当によろしいですか？"} %><br><br>
+					</li>
+					
+				<% end %>
+			</ul>
+
+
+
+			<div class="span">
+			<div class="project_card_wrap">
+				<div class="card">
+					<div class="prjectthumbnail">
+						<% @entrepreneurs.each do |entrepreneur| %>
+						<%= image_tag entrepreneur.image.thumb.url %>
+						<%= link_to entrepreneur.title, entrepreneur_path(entrepreneur)	 %><br>
+						<%= entrepreneur.text %><br>
+
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>

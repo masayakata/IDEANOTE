@@ -1,0 +1,39 @@
+<div id="e-wrapper">
+	<div id="plofile">
+		<br>
+		◯◯家<br><br>
+		<% if user_signed_in? %>
+			<%= current_user.name ? current_user.name : current_user.email %><br>
+			<%=link_to "edit", edit_user_registration_path %>
+		<% end %>
+		
+		フォロー、フォロワー<br><br>
+		お気に入りアイディア<br><br>
+		グループ<br><br>
+		<%= link_to "IDEAIN", entrepreneurs_new_path %><br>
+	</div>
+	<div class="s-title">
+		<string><h1><%= @entrepreneur. title %></h1></string>
+	</div>
+	<div class="image">
+		<%= image_tag @entrepreneur.image.url,width: 1000, height: 400 %><br>
+	</div>
+	<div class="s-text">
+		<%= @entrepreneur.text %>
+	</div>
+	
+	<div class="s-wrapper">	
+		<ul class="box">
+			<li class="box">
+				<%= @entrepreneur.text %>
+				<%= render @entrepreneur.comments %>
+			</li>
+		</ul>
+	</div>
+
+	<div class="comments">
+		<%= render 'comments/form' %>
+	</div>
+
+			
+</div>

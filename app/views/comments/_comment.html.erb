@@ -1,0 +1,6 @@
+<div class="comment">
+	
+		<%= comment.body %><br>
+		<%= comment.commenter %>
+		<%= link_to "削除", [comment.entrepreneur, comment], method: :delete, data: {confirm: "本当によろしいですか？"} %>
+	</div>
