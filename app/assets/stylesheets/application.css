@@ -9,10 +9,10 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
- *= require_tree .
+ *= require_tree
  *= require_self
  */
+ 
 
 body {
 	margin:0;
@@ -49,13 +49,16 @@ h1, h2, h3 {
 	width: 1000px;
 	background: #75A9FF;
 }
-ul {
+ul.top-menu {
+	font-size: 12px;
+	padding-left: 170px;
   list-style-type: none;
-	padding-left: 0;
-	width: 80
+	/*padding-left: 0;*/
+	width: 80;
+	background: aliceblue;
 }
 li {
-   float: right;
+  /*float: left;*/
   display: inline-block;
   font-size: 12px;
   width: 15%;
@@ -66,26 +69,79 @@ ul.box {
 	width: 930px;
 	height: 400px;
 	margin: 0 auto;
-	float: right;
+	/*float: right;*/
 	margin-right: 40px;
 }
 
 li.box {
-	height: 150px;
-	width: 200px;
+	height: 350px;
+	max-height: 350px;
+	width: 275px;
 	text-align: center;
-	float: none;
-
+	/*float: none;*/
+	float: left;
 	margin-top: 20px;
 	margin-left: 20px;
-	padding: 40px ;
+	/*padding: 40px ;*/
 	border: 1px solid #ccc;
 }
+
+ul.s-box {
+	width: 930px;
+	height: 400px;
+	margin: 0 auto;
+	float: right;
+	margin-right: 40px;
+
+}
+
+li.s-comment {
+	height: 200px;
+	max-height: 300px;
+	/*width: 600px;*/
+	text-align: center;
+	/*float: none;*/
+
+	/*margin-top: 0px;
+	margin-left: 20px;*/
+	/*padding: 20px ;*/
+	border: 1px solid #ccc;
+	width: 49%;
+  	min-width: 130px;
+
+}
+
+ul.s-comments {
+	clear: both;
+	-webkit-padding-start: 0;  
+	/*padding-right: 20px;*/
+}
+
+
+.comment-profile {
+
+	clear: both;
+	float: left;
+	margin-left: 10px;
+}
+
+.comment-body {
+	clear: both;
+	padding-left: 30px;
+}
+
+.user-showimage {
+	height: 60px;
+}
+.user-showname {
+	verticle-align: top;
+}
+
 
 #plofile {
 	clear: both;
 	float: left;
-	margin-left: 70px;
+	margin-left: 90px;
 }
 
 #top-title {
@@ -146,6 +202,7 @@ li.box {
 
 .header-b {
 	text-align: center;
+	padding-top: 2px;
 }
 
 .header-c {
@@ -173,16 +230,9 @@ li.box {
 	border: 1px solid #ccc;
 	width: 1000px;
 	padding: 20px 0 0 200px;
+	float: right;
 }
 
-.project_card_wrap {
-	
-}
-
-.card {
-	
-
-}
 
 .s-title {
 	padding-left: 400px;
@@ -190,22 +240,204 @@ li.box {
 	padding-bottom: 50px;
 }
 .s-text {
-	width: 1000px;
-	padding: 20px 0 0 200px;
+	width: 800px;
+	padding: 30px 0 0 320px;
+}
+
+.s-area {
+	border: 1px solid #ccc;
+	width: 800px;
+	margin-left: 320px;
+/*	padding-top: 30px;
+	padding-right:;
+	padding-bottom:
+	padding-left: 100px;
+*/
 }
 
 .comment {
-	border: 1px solid #ccc;
+	/*text-align: center;*/
+	padding-top: 30px;
+	/*padding-right:;
+	padding-bottom:*/
+	padding-left: 100px;
+	/*border: 1px solid #ccc;*/
 }
 
 .comments {
+	/*clear: both;*/
+	/*float: right;*/
+	padding-right: 100px;
+}
+
+.projectboxbase {
+	margin: 0 -35px 0 0;
+}
+
+.projectbox {
+	    width: 310px;
+    height: 390px;
+    position: relative;
+    float: left;
+    margin-right: 35px;
+    margin-bottom: 35px;
+    background: white;
+    border-radius: 4px;
+    border-bottom: 2px solid #e7e7e7;
+}
+
+.show-comment {
+	/*border-bottom: 2px solid #ccc;*/
+}
+.user-name img {
+	vertical-align: middle;
+}
+.image {
+	padding-left: 300px;
+}
+
+.float-left {
+	/*position: absolute;*/
+	padding-left: 5px;
+	float: left;
+}
+.user-role {
+	float: left;
+	padding-left: 15px;
+}
+.padding-left {
+	position: absolute;
+	float: left;
+	padding-left: 60px;
+}
+
+.sign-up {
+	display: table-cell;
+    /*text-align: center;*/
+    width: 30%;
+    background-color: #f6f8fa;
+    padding-top: 20px;
+    padding-left: 165px;
+
+}
+
+.login {
+	display: table-cell;
+    /*text-align: center;*/
+    width: 50%;
+    padding-top: 20px;
+    padding-left: 150px;
+
+}
+
+.login-box {
+	display: table;
+    width: 100%;
+    padding-left: 165px;
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
+}
+
+.page {
 	clear: both;
 	float: right;
 }
 
+.pagination {
 
+  text-align: center;
+  display: inline-block;
+  padding-left: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: .25rem;
+  position:relative;clear: both
+}
+.count-3 {
+	margin-top: 40px;
+	overflow: hidden;
+	color: silver;
+}
+.pv {
+	padding-left: 20px;
+	float: left;
+}
 
+.comments-count {
+	padding-left: 20px;
+	float: left;
+}
+.favo-count {
+	padding-left: 20px;
+	float: left;
+}
+div.padding-left:after {  
+    content: ".";  
+    display: block;  
+    visibility: hidden;  
+    height: 0.1px;  
+    font-size: 0.1em;  
+    line-height: 0;  
+    clear: both;  
+}
 
+.budge {
+display: inline-block;
+min-width: 10px;
+padding: 3px 7px;
+font-size: 12px;
+font-weight: 700;
+line-height: 1;
+color: #fff;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+background-color: #777;
+border-radius: 10px;
+float: right;
+margin-right: 16px;
+}
 
+.search-form {
+	padding-left: 1070px;
+}
 
+.favopush {
 
+}

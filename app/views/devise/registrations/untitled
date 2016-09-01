@@ -1,0 +1,12 @@
+	<br>
+	<div class="projectboxbase">
+		<% @entrepreneurs.each do |entrepreneur| %>
+		<div class="projectbox">
+			<div class="user-image">
+			 <%= image_tag entrepreneur.image.thumb.url %>
+			</div>
+			<h1><%= link_to entrepreneur.title, entrepreneur_path(entrepreneur)	 %></h1>
+			<%= entrepreneur.text.truncate(50) %><br>
+
+			<% end %>
+		</div>

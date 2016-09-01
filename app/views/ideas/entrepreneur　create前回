@@ -1,0 +1,8 @@
+
+@entrepreneur = Entrepreneur.new(entrepreneur_params)
+  	@entrepreneur.save
+
+  	redirect_to entrepreneurs_path(@entrepreneur)
+
+
+  	のみ

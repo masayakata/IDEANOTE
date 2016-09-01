@@ -11,23 +11,27 @@
 	
 	
 
-<ul>
-				<li><h6><% if user_signed_in? %>
-				<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-				<% end %></h6></li>
-				<li><h6><%= link_to "問い合わせ" %></h6></li>
-				<li><h6><%= link_to "IDEA NOTEとは" %></h6></li>
-				<li><h6><%= link_to "当サイト概要" %></h6></li>
-				<li><h6><%= link_to "ログイン", user_session_path %></h6></li>
-				<li><h6><%= link_to "新規登録", new_user_registration_path %></h6></li>
-				
-			</ul>
+<ul class="top-menu">
+			<li><h6><%= link_to "新規登録", user_session_path %></h6>
+			</li>
+			<li><h6><%= link_to "ログイン", user_session_path %></h6>
+			<li>
+				<h6><%= link_to "タイムライン", feeds_path %></h6>
+			</li>
+			<li>
+				<h6><%= link_to "お気に入り", favorites_path %></h6>
+			</li>
+			<li>
+				<h6><%= link_to "IDEA NOTEとは", about_index_path %></h6>
+			</li>
+	<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>				
+</ul>
 		
 			
 		
 	</div>
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+	<!-- <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
 <%= yield %>
 
 </body>

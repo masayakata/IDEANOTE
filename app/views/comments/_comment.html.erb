@@ -1,6 +1,26 @@
-<div class="comment">
-	
-		<%= comment.body %><br>
-		<%= comment.commenter %>
-		<%= link_to "削除", [comment.entrepreneur, comment], method: :delete, data: {confirm: "本当によろしいですか？"} %>
+<% if comment.id %>
+	<li class="s-comment">	
+	<div class="comment-profile"> 
+		
+		<span class="user-showimage">
+			
+			<%= image_tag comment.idea.user.image, height:60, width:60, align: :left  %>
+		</span>
+
+		<span class="user-showname">
+			<%= comment.idea.user.role %><br>
+			<%= comment.idea.user.name %>
+			
+
+			
+				
+		</span>
 	</div>
+
+	<div class="comment-body">
+		<%= comment.body %><br>
+		<%= link_to "削除", [comment.idea, comment], method: :delete, data: {confirm: "本当によろしいですか？"} %>
+	</div>
+	</li>
+<% end %>
+	

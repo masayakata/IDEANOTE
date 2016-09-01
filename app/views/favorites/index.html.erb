@@ -1,0 +1,66 @@
+<h1>
+	お気に入り一覧
+</h1>
+<div id="e-wrapper">
+	<% if user_signed_in? %>
+			仮置きプロフィール
+			<%=link_to "edit", edit_user_registration_path %>
+	<% end %>
+	<div id="plofile">
+		<br>
+
+		<%= current_user.role %><br><br>　
+		<%= image_tag current_user.image, height:60, width: 60 %><br>
+
+
+		<% if user_signed_in? %>
+			<%= link_to (current_user.name ? current_user.name : current_user.email), user_path(current_user) %><br>
+			
+		<% end %><br>
+		<section class="stats">
+       	 <%= render 'shared/stats' %>
+      	</section><br>
+		お気に入りアイディア<br><br>
+		
+		<%= link_to "IDEAIN", new_idea_path %><br>
+	</div>
+		<br>
+	<div class="ideas">	
+		<ul class="box">		
+			<% @favorites.each do |favorite| %>
+				<% idea = favorite.idea %>
+				<li class="box">	
+					<%= image_tag idea.image.thumb.url ,height: 130, width: 275 %>
+					<br><br>
+					<h2><%= link_to idea.title.truncate(20), idea_path(idea)%></h2>
+					<%= idea.text.truncate(70) %>
+					<br><br>
+					<div class="budge">
+						<%= idea.genre %>
+					</div>
+					<div class="float-left">	
+						<%= image_tag idea.user.image, height:40, width: 40 %><br>
+					</div>
+					<div class="padding-left">
+						<%= idea.user.role %>
+						<%= link_to (idea.user.name ? idea.user.name : idea.user.email), user_path(idea.user) %>
+					</div>
+					<div class="pv">
+						PV:<%= idea.pv %>
+					</div>
+					<br><br>
+					<div class="comments-count">
+						コメント数: <%= idea.comments_count %>
+					</div>
+
+				</li>
+			<% end %>
+			<div class="page">
+				<%= will_paginate @ideas,
+   				 previous_label: "前のページ", next_label: "次のページ",
+  				inner_window: 1, outer_window: 0 %>
+			</div>
+		</ul>
+	</div>
+</div>
+	

@@ -1,22 +1,12 @@
 <div id="wrapper">
 	
-<ul>
-				<li><h6><% if user_signed_in? %>
-					<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-				<% end %></h6></li>
-				<li><h6><%= link_to "問い合わせ" %></h6></li>
-				<li><h6><%= link_to "IDEA NOTEとは" %></h6></li>
-				<li><h6><%= link_to "当サイト概要" %></h6></li>
-				<li><h6><%= link_to "ログイン", user_session_path %></h6></li>
-				<li><h6><%= link_to "新規登録", new_user_registration_path %></h6></li>
-				
-			</ul>
+
 	<br>
 	
 	<br>
 	<br>
 	<div id="top-image">
-			<%= image_tag "aaa" %>
+			
 		<div id="top-title">
 			<h2>IDEA NOTE</h2>
 			
@@ -42,7 +32,7 @@
 		<div id="top-idea">
 			<div class="e">
 				<h3><%= link_to "起業家" %></h3>
-				<%= form_for :entrepreneur, url:entrepreneurs_path do |f| %>
+				<%= form_for :idea, url:ideas_path do |f| %>
 				
 					<%= f.text_field :title %><br>
 					<%= f.text_area :text %><br>
@@ -54,7 +44,7 @@
 			</div>
 			<div class="c">
 				<h3><%= link_to "クライアント" %></h3>
-				<%= form_for :entrepreneur, url:entrepreneurs_path do |f| %>
+				<%= form_for :idea, url:ideas_path do |f| %>
 					<%= f.text_field :title %><br>
 					<%= f.text_area :text %><br>
 					<%= f.text_field :image %><br>
@@ -64,7 +54,7 @@
 			</div>
 			<div class="i">
 				<h3><%= link_to "投資家" %></h3>
-				<%= form_for :entrepreneur, url:entrepreneurs_path do |f| %>
+				<%= form_for :idea, url:ideas_path do |f| %>
 					<%= f.text_field :title %><br>
 					<%= f.text_area :text %><br>
 					<%= f.text_field :image %><br>
@@ -84,24 +74,24 @@
 		<hr>
 		<br>
 		<br>
-			<div class="header-a">
+			<div class="header-b">
 				<p>『いま』あなたの周りに起きている 出来事についてのアイディア</p>
 				
 			</div>
-			<div class="header-a">	
+			<div class="header-b">	
 				<p>個々でのアイディアを複数人で考えまとめ上げるそれが一つの出来事に繋がる。</p>
 				
 				
 			</div>
 		
-			<div class="header-a">
+			<div class="header-b">
 				<p>それをいち早くアイディアにまとめ上げる</p>
 				
 			</div>	
-			<div class="header-c">
+			<div class="header-b">
 				<p>アイディアは貯めておくだけでは意味がなくそれをアウトプットしていくことに価値が生まれる</p>
 			</div>
-			<div class="header-a">
+			<div class="header-b">
 			 	自由な雰囲気で他を批判せずアイデアを出し合い最終的に一つによりよい解決を得ようとする
 			</div>
 	</div>

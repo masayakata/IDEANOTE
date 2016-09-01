@@ -11,30 +11,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714142022) do
+ActiveRecord::Schema.define(version: 20160822115216) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter"
     t.text     "body"
-    t.integer  "entrepreneur_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "comments", ["entrepreneur_id"], name: "index_comments_on_entrepreneur_id"
-
-  create_table "entrepreneurs", force: :cascade do |t|
-    t.string   "title"
-    t.text     "text"
-    t.string   "image"
+    t.integer  "idea_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user__id"
     t.integer  "user_id"
   end
 
-  add_index "entrepreneurs", ["user__id"], name: "index_entrepreneurs_on_user__id"
-  add_index "entrepreneurs", ["user_id"], name: "index_entrepreneurs_on_user_id"
+  add_index "comments", ["idea_id"], name: "index_comments_on_idea_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "idea_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favorites", ["idea_id"], name: "index_favorites_on_idea_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
+
+  create_table "ideas", force: :cascade do |t|
+    t.string   "title"
+    t.text     "text"
+    t.string   "image"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "user__id"
+    t.integer  "user_id"
+    t.integer  "pv",             default: 0
+    t.integer  "comments_count", default: 0
+    t.string   "genre"
+  end
+
+  add_index "ideas", ["user__id"], name: "index_ideas_on_user__id"
+  add_index "ideas", ["user_id"], name: "index_ideas_on_user_id"
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -51,6 +77,7 @@ ActiveRecord::Schema.define(version: 20160714142022) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "image"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

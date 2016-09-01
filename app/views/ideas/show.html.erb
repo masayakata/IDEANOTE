@@ -1,0 +1,65 @@
+<div id="e-wrapper">
+	<% if user_signed_in? %>
+			仮置きプロフィール
+			<%=link_to "edit", edit_user_registration_path %>
+		<% end %>
+	<!-- # config.encryptor = :sha512 -->
+	<!-- devise 211, config.encryptor = :sha512 -->
+	 <div id="plofile">
+		　
+		<%= current_user.role %><br><br>　
+		<%= image_tag current_user.image, height:60, width:60  %><br>　
+		
+		
+		<% if user_signed_in? %>
+			<%= link_to (current_user.name ? current_user.name : current_user.email), user_path(current_user) %><br>
+			
+		<% end %><br>
+		<section class="stats">
+       	 <%= render 'shared/stats' %>
+      	</section><br>
+		
+		
+		お気に入りアイディア<br><br>
+		
+		
+		
+		<%= link_to "IDEAIN", new_idea_path %><br>
+	</div>
+	<div class="s-title">
+		<string><h1><%= @idea.title %></h1></string>
+	</div>
+	<div class="favopush">
+		<%= render 'favo_form', idea: @idea if user_signed_in? %>
+	</div>
+
+
+	<div class="image">
+		<%= image_tag @idea.image.url,width: 900, height: 600 %><br>
+	</div>
+	<div class="s-text">
+		<%= @idea.text %>
+	</div>
+	
+	<br>
+	<br>
+	<br>
+	<div class="comment">
+		 <%= render 'comments/form' %>  
+	</div>
+	<div class="s-area">
+		
+		<% if @comments.present? %>
+			<ul class="s-comments">
+				<%= render @comments %>
+				
+			</ul>
+		<% end %>
+		
+	</div>
+	
+		
+
+
+
+</div>

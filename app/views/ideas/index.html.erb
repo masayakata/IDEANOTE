@@ -1,0 +1,87 @@
+
+<div id="e-wrapper">
+	<% if user_signed_in? %>
+			仮置きプロフィール
+			<%=link_to "edit", edit_user_registration_path %>
+	<% end %>
+	<div id="plofile">
+		<br>
+		<%= current_user.role %><br><br>　
+		<% if current_user.image.present? %>
+			<%= image_tag current_user.image, height:60, width: 60 %><br>
+		<% else %>
+			<%= image_tag "/test_user.png", height:60, width: 60 %><br>
+		<% end %>
+
+
+		<% if user_signed_in? %>
+			<%= link_to (current_user.name ? current_user.name : current_user.email), user_path(current_user) %><br>
+			
+		<% end %><br>
+		<section class="stats">
+       	 <%= render 'shared/stats' %>
+      	</section><br>
+		お気に入りアイディア<br><br>
+		
+		<%= link_to "IDEAIN", new_idea_path %><br>
+	</div>
+		<br>
+	<div class="search-form">
+		<%= form_tag({controller: "ideas", action: "index"}, method: "get" ) do %>
+			<input type="text" name="q" size="20" placeholder="キーワードを入力">
+		<% end %>
+	</div>
+	<div class="ideas">	
+		<ul class="box">		
+			<% @ideas.each do |idea| %>
+				<li class="box">
+				<%= link_to "削除", idea_path(idea), method: :delete, data:{confirm: "本当によろしいですか？"} %><br>	
+					<% if idea.image.present? %>
+						<%= image_tag idea.image.thumb.url ,height: 130, width: 275 %>
+					<% else %>
+						<%= image_tag "/test_idea.jpg" ,height: 130, width: 275 %>
+					<% end %>
+					<br><br>
+					<h2><%= link_to idea.title.truncate(16), idea_path(idea)%></h2>
+					<%= idea.text.truncate(40) %>
+					<br><br>
+					<div class="float-left">	
+						<%= image_tag idea.user.image, height:40, width: 40 %><br>
+					</div>
+					<% if idea.genre.present? %>
+						<div class="budge">
+							<%= link_to idea.genre, ideas_path(genre: idea.genre) %>
+						</div>
+						
+						
+					<% end %>
+					<div class="user-role">
+						<%= idea.user.role %>
+					</div><br>
+					<div class="padding-left">
+						<%= link_to (idea.user.name ? idea.user.name : idea.user.email), user_path(idea.user) %>
+					</div>
+					<div class="count-3">
+						<div class="pv">
+							PV:<%= idea.pv %>
+						</div>
+						<div class="comments-count">
+							コメント数: <%= idea.comments_count %>
+							
+						</div>
+						<div class="favo-count">
+							お気に入り数: <%= idea.favorites.count %>
+						</div>
+					</div>
+
+				</li>
+			<% end %>
+			<div class="page">
+				<%= will_paginate @ideas,
+   				 previous_label: "前のページ", next_label: "次のページ",
+  				inner_window: 1, outer_window: 0 %>
+			</div>
+		</ul>
+	</div>
+</div>
+	

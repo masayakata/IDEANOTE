@@ -1,0 +1,2 @@
+<%= link_to "編集", edit_entrepreneur_path(entrepreneur) %>
+<%= link_to "削除", entrepreneur_path(entrepreneur), method: :delete, data:{confirm: "本当によろしいですか？"} %><br>

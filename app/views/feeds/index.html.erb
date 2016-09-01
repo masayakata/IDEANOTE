@@ -1,0 +1,16 @@
+<% @feed_items.each do |idea| %>
+		<li class="box">	
+			<%= image_tag idea.image.thumb.url ,height: 130, width: 275 %><br><br>
+			<h2><%= link_to idea.title.truncate(20), idea_path(idea)%></h2>
+						<%= idea.text.truncate(70) %>
+					<br><br>
+						<div class="float-left">
+							<%= image_tag idea.user.image, height:40, width: 40 %><br>
+						</div>
+						<div class="padding-left">
+							<%= idea.user.role %>
+							<%= link_to (idea.user.name ? idea.user.name : idea.user.email), user_path(idea.user) %>
+						</div>
+					</li>
+					
+				<% end %>

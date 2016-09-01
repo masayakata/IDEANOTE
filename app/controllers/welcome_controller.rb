@@ -6,23 +6,23 @@ class WelcomeController < ApplicationController
   end
 
   def create
-  	@entrepreneur = Entrepreneur.new(entrepreneur_params)
-  	@entrepreneur.save
+  	@idea = Idea.new(idea_params)
+  	@idea.save
 
-  	redirect_to new_user_registration_path (@entrepreneur)
+  	redirect_to new_user_registration_path (@idea)
 
-    @entrepreneur.user = current_user
+    @idea.user = current_user
   end
 
 
   def show
-  	@entrepreneur = Entrepreneur.find params[:id]
+  	@idea = Idea.find params[:id]
   end
 
   def edit
   end
 
-  def entrepreneur_params
-  	params.require(:entrepreneur).permit(:title, :text, :image)
+  def idea_params
+  	params.require(:idea).permit(:title, :text, :image)
   end
 end

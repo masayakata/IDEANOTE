@@ -1,21 +1,31 @@
 Rails.application.routes.draw do
 
-  
+
+  resources :feeds, only: [:index]
+
+  get 'about/index'
 
   get 'welcome/index'
 
   devise_for :users
-  resources :entrepreneurs do
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :ideas do
     resources :comments
   end
-  
-  get 'entrepreneurs/index'
+   resources :relationships,       only: [:create, :destroy]
+   resources :favorites
+  # get 'ideas/index'
 
-  get 'entrepreneurs/new'
+  # get 'ideas/new'
 
-  get 'entrepreneurs/show'
+  # get 'ideas/show'
 
-  get 'entrepreneurs/edit'
+  # get 'entrepreneurs/edit'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

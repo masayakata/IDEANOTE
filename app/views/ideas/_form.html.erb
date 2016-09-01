@@ -1,0 +1,17 @@
+
+<div class="header-b">
+<%= form_for @idea do |f| %>
+<br> 
+
+<%= f.label :ジャンル %><br />
+<%= f.select :genre, [["IT","IT"], ["飲食", "飲食"], ["新ビジネス", "新ビジネス"]] %><br />
+<%= f.label :タイトル　%><br />
+<%= f.text_field :title ,size:"100×30" %><br />
+<%= f.label :詳細　%><br />
+<%= f.text_area :text ,size:"100×100" %><br />
+<%= f.label :画像　%><br />
+<%= f.file_field :image ,size:"50×10" %><br />
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.submit :ideain %>
+<% end %>
+</div>

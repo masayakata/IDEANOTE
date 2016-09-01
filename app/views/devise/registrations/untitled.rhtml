@@ -1,0 +1,15 @@
+div class="span">
+		<div class="project_card_wrap">
+			<ul class="box">
+					<% @entrepreneurs.each do |entrepreneur| %>
+					<li class="box">
+						<%= image_tag entrepreneur.image.thumb.url %>
+						<%= link_to entrepreneur.title, entrepreneur_path(entrepreneur)	 %>	<br>
+						<%= entrepreneur.text %><br>
+						<br>
+					</li>
+					<% end %>
+			</ul>
+					
+				</div>
+			</div>

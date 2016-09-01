@@ -1,7 +1,14 @@
 <h2>新規登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
   <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :ロール %><br />
+    <%= f.select :role, [["起業家","起業家"], ["クライアント", "クライアント"], ["投資家", "投資家"]] %>
+  </div>  
+
   <div class="field">
     <%= f.label :名前 %><br />
     <%= f.text_field :name %>

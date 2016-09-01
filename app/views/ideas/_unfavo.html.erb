@@ -1,0 +1,5 @@
+<%= form_for(current_user.favorites.find_by(idea_id: @idea.id),
+             html: { method: :delete },
+             remote: true) do |f| %>
+  <%= f.submit "取り消し", class: "btn" %>
+<% end %>

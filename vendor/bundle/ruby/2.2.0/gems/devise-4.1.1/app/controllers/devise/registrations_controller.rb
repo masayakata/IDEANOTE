@@ -29,7 +29,9 @@ class Devise::RegistrationsController < DeviseController
     else
       clean_up_passwords resource
       set_minimum_password_length
+      PostMailer.post_email(resource).deliver
       respond_with resource
+
     end
   end
 
